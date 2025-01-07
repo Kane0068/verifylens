@@ -1,0 +1,18 @@
+verifylens/
+├── verifylens/
+│   ├── __init__.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   └── analyzer.py      # Ana MediaAnalyzer sınıfı buraya gelecek
+│   ├── api/
+│   │   ├── __init__.py
+│   │   └── routes.py        # FastAPI routes buraya gelecek
+│   └── utils/
+│       ├── __init__.py
+│       ├── token_tracker.py # Token izleme fonksiyonları
+│       └── file_handler.py  # Dosya işleme fonksiyonları
+├── tests/
+├── requirements.txt
+├── .env
+├── README.md
+└── setup.py

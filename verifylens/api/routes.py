@@ -29,11 +29,28 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 # Initialize analyzer
 analyzer = MediaAnalyzer(os.getenv("GEMINI_API_KEY"))
 
+@app.get("/")
+async def root():
+    """
+    Root endpoint that provides API information.
+    """
+    return {
+        "name": "VerifyLens API",
+        "version": "1.0.0",
+        "description": "AI-powered media verification platform",
+        "endpoints": {
+            "/analyze/{media_type}": "POST - Analyze media file",
+            "/usage": "GET - Get token usage statistics",
+            "/docs": "GET - API documentation"
+        }
+    }
+
+
 @app.post("/analyze/{media_type}")
 async def analyze_media(
     media_type: str,
     file: UploadFile = File(...),
-    token: str = Depends(oauth2_scheme)
+    #token: str = Depends(oauth2_scheme)
 ) -> Dict[str, Any]:
     """
     Analyze uploaded media file.
