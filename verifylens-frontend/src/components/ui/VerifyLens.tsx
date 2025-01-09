@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { Upload, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
