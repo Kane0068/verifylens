@@ -10,12 +10,16 @@ const VerifyLens = () => {
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
 
-  const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
+ const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const selectedFile = e.target.files?.[0]; // ?. ile dosya olup olmadığını kontrol edin
+  if (selectedFile) {
     setFile(selectedFile);
     setError(null);
-    setResult(null);
-  };
+  } else {
+    setError("No file selected");
+  }
+};
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
